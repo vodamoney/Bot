@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vodamoney • Ganhos no Saldo Principal</title>
+  <title>Vodamoney • Invista e Ganhe 5MT por dia</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    /* EXATAMENTE O MESMO ESTILO ANTERIOR - NADA MUDA */
     * { box-sizing: border-box; }
     :root {
       --primary: #c62828;
@@ -195,16 +194,16 @@
   </style>
 </head>
 <body>
-  <!-- Navbar (exatamente igual) -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark shadow">
     <div class="container">
-      <a class="navbar-brand" href="#"><i class="fas fa-bolt"></i> Vodamoney</a>
+      <a class="navbar-brand" href="#"><i class="fas fa-bolt"></i> Vodamoney </a>
       <div id="userSection" class="d-flex"></div>
     </div>
   </nav>
 
-  <!-- Modais (idênticos) -->
-  <div class="modal fade" id="loginModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Entrar</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><form id="loginForm"><div class="mb-3"><label>Email</label><input type="email" class="form-control" id="loginEmail" value="teste@email.com" required></div><div class="mb-3"><label>Senha</label><input type="password" class="form-control" id="loginPassword" value="123456" required></div><button type="submit" class="btn btn-primary w-100">Entrar</button></form><div class="text-center mt-3"><button class="btn btn-link" onclick="showRegister()">Criar conta</button></div></div></div></div></div>
+  <!-- Modais -->
+  <div class="modal fade" id="loginModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Entrar</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><form id="loginForm"><div class="mb-3"><label>Email</label><input type="email" class="form-control" id="loginEmail" value="" required></div><div class="mb-3"><label>Senha</label><input type="password" class="form-control" id="loginPassword" value="123456" required></div><button type="submit" class="btn btn-primary w-100">Entrar</button></form><div class="text-center mt-3"><button class="btn btn-link" onclick="showRegister()">Criar conta</button></div></div></div></div></div>
 
   <div class="modal fade" id="registerModal" tabindex="-1"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Registar</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><form id="registerForm"><div class="row"><div class="col-md-6 mb-3"><label>Nome Completo</label><input type="text" class="form-control" id="regNome" required></div><div class="col-md-6 mb-3"><label>Email</label><input type="email" class="form-control" id="regEmail" required></div></div><div class="row"><div class="col-md-6 mb-3"><label>Telefone</label><input type="tel" class="form-control" id="regTelefone" required></div><div class="col-md-6 mb-3"><label>Senha</label><input type="password" class="form-control" id="regSenha" required></div></div><div class="row"><div class="col-md-6 mb-3"><label>Província</label><select class="form-select" id="regProvincia" onchange="loadDistritos()"><option value="">Selecione...</option><option value="Maputo">Maputo</option><option value="Gaza">Gaza</option><option value="Inhambane">Inhambane</option><option value="Sofala">Sofala</option><option value="Manica">Manica</option><option value="Tete">Tete</option><option value="Zambézia">Zambézia</option><option value="Nampula">Nampula</option><option value="Cabo Delgado">Cabo Delgado</option><option value="Niassa">Niassa</option></select></div><div class="col-md-6 mb-3"><label>Distrito</label><select class="form-select" id="regDistrito" required><option value="">...</option></select></div></div><div class="row"><div class="col-md-6 mb-3"><label>Sexo</label><select class="form-select" id="regSexo"><option>Masculino</option><option>Feminino</option><option>Outro</option></select></div><div class="col-md-6 mb-3"><label>Profissão</label><select class="form-select" id="regProfissao"><option>Estudante</option><option>Empregado</option><option>Empresário</option><option>Outro</option></select></div></div><button type="submit" class="btn btn-success w-100">Criar conta</button></form></div></div></div></div>
 
@@ -215,10 +214,9 @@
     <!-- Dashboard (pós-login) -->
     <div id="dashboard" class="d-none">
       <div class="row mb-4">
-        <div class="col-md-3"><div class="card text-center p-3"><h6>Saldo Disponível</h6><div class="dashboard-stats" id="saldo">0.00 MT</div><small class="text-muted" id="saldoValidade"></small><small id="saldoDetalhes"></small></div></div>
-        <div class="col-md-3"><div class="card text-center p-3"><h6>Total Investido</h6><div class="dashboard-stats" id="totalInvestido">0.00 MT</div></div></div>
-        <div class="col-md-3"><div class="card text-center p-3"><h6>Ganho Diário</h6><div class="dashboard-stats" id="ganhoDiario">0 MT</div><span class="daily-profit" id="proximoGanho"></span></div></div>
-        <div class="col-md-3"><div class="card text-center p-3"><h6>Próximo Ganho</h6><div class="countdown-timer" id="countdown">00:00:00</div></div></div>
+        <div class="col-md-4"><div class="card text-center p-3"><h6>Saldo Disponível</h6><div class="dashboard-stats" id="saldo">0.00 MT</div><small class="text-muted" id="saldoValidade"></small><small id="saldoDetalhes"></small></div></div>
+        <div class="col-md-4"><div class="card text-center p-3"><h6>Total Investido</h6><div class="dashboard-stats" id="totalInvestido">0.00 MT</div></div></div>
+        <div class="col-md-4"><div class="card text-center p-3"><h6>Próximo Ganho (5MT)</h6><div class="countdown-timer" id="countdown">00:00:00</div><span class="daily-profit" id="proximoGanho"></span></div></div>
       </div>
 
       <ul class="nav nav-tabs" id="dashboardTabs">
@@ -233,9 +231,9 @@
         <!-- Investimentos -->
         <div class="tab-pane fade show active" id="investimentos">
           <div id="investmentAlerts"></div>
-          <div class="investment-guide"><h5><i class="fas fa-info-circle"></i> Apenas um investimento por usuário</h5><ol><li>Deposite e aguarde aprovação</li><li>Invista com saldo (mínimo 100 MT)</li><li>Receba 2 MT/dia no saldo</li></ol></div>
-          <h4 class="mb-4">Pacote Mineração Diária</h4>
-          <div class="row"><div class="col-md-6"><div class="card investment-card" id="miningCard"><div class="card-body"><h5 class="card-title">Mineração Diária</h5><p><i class="fas fa-infinity"></i> Ganho fixo: <strong>2.00 MT/dia</strong><br><i class="fas fa-coins"></i> Investimento mínimo: 100 MT<br><i class="fas fa-ban"></i> Único por usuário</p><div class="input-group mb-3"><input type="number" id="investAmount" value="100" min="100" class="form-control"><span class="input-group-text">MT</span></div><button class="btn btn-light w-100" id="investButton" onclick="investir()">Investir Agora</button></div></div></div></div>
+          <div class="investment-guide"><h5><i class="fas fa-info-circle"></i> Apenas um investimento por usuário</h5><ol><li>Deposite e aguarde aprovação</li><li>Invista com saldo (mínimo 100 MT)</li><li>Receba <strong>5 MT por dia</strong> no saldo</li></ol></div>
+          <h4 class="mb-4">Pacote Mineração Diária - 5MT/dia</h4>
+          <div class="row"><div class="col-md-6"><div class="card investment-card" id="miningCard"><div class="card-body"><h5 class="card-title">Mineração Diária 5MT</h5><p><i class="fas fa-infinity"></i> Ganho fixo: <strong>5.00 MT por dia</strong><br><i class="fas fa-coins"></i> Investimento mínimo: 100 MT<br><i class="fas fa-ban"></i> Único por usuário</p><div class="input-group mb-3"><input type="number" id="investAmount" value="100" min="100" class="form-control"><span class="input-group-text">MT</span></div><button class="btn btn-light w-100" id="investButton" onclick="investir()">Investir Agora</button></div></div></div></div>
         </div>
 
         <!-- Depósitos -->
@@ -248,7 +246,7 @@
         <!-- Levantamentos -->
         <div class="tab-pane fade" id="levantamentos">
           <h4>Solicitar Levantamento</h4>
-          <form id="withdrawForm" class="mt-3"><div class="row"><div class="col-md-6 mb-3"><label>Método</label><select class="form-select" id="withdrawMethod"><option value="mpesa">M-Pesa</option></select></div><div class="col-md-6 mb-3"><label>Valor (MT)</label><input type="number" id="withdrawValue" min="2" class="form-control" required></div></div><div class="mb-3"><label>Nome do Receptor</label><input type="text" id="receiverName" class="form-control" required></div><div class="mb-3"><label>Número da conta</label><input type="tel" id="receiverNumber" class="form-control" required></div><button type="submit" class="btn btn-success">Solicitar</button></form>
+          <form id="withdrawForm" class="mt-3"><div class="row"><div class="col-md-6 mb-3"><label>Método</label><select class="form-select" id="withdrawMethod"><option value="mpesa">M-Pesa</option></select></div><div class="col-md-6 mb-3"><label>Valor (MT)</label><input type="number" id="withdrawValue" min="5" class="form-control" required></div></div><div class="mb-3"><label>Nome do Receptor</label><input type="text" id="receiverName" class="form-control" required></div><div class="mb-3"><label>Número da conta</label><input type="tel" id="receiverNumber" class="form-control" required></div><button type="submit" class="btn btn-success">Solicitar</button></form>
         </div>
 
         <!-- Histórico -->
@@ -263,23 +261,23 @@
     <div id="homePage">
       <div class="row align-items-center">
         <div class="col-md-6">
-          <h1 class="display-4 text-gradient">Vodamoney <br>Invista e Ganhe</h1>
-          <p class="lead">Comece com 100 MT e receba <strong>2 MT por dia</strong> para sempre. Rendimento diário garantido.</p>
-          <div class="card p-3 mb-4"><h5><i class="fas fa-check-circle text-success"></i> Como funciona:</h5><ul class="list-unstyled"><li><i class="fas fa-check text-success"></i> Depósito válido por 6h</li><li><i class="fas fa-check text-success"></i> Apenas um investimento por pessoa</li><li><i class="fas fa-check text-success"></i> Ganhos diários automáticos</li></ul></div>
+          <h1 class="display-4 text-gradient">Vodamoney <br>5 MT por dia</h1>
+          <p class="lead">Comece com 100 MT e receba <strong>5 MT por dia</strong> para sempre. Rendimento diário garantido de 5%.</p>
+          <div class="card p-3 mb-4"><h5><i class="fas fa-check-circle text-success"></i> Como funciona:</h5><ul class="list-unstyled"><li><i class="fas fa-check text-success"></i> Depósito válido por 6h</li><li><i class="fas fa-check text-success"></i> Apenas um investimento por pessoa</li><li><i class="fas fa-check text-success"></i> Ganhos diários automáticos de 5MT</li></ul></div>
           <button class="btn btn-primary btn-lg" onclick="showRegister()"><i class="fas fa-user-plus"></i> Começar</button>
           <button class="btn btn-outline-primary btn-lg ms-2" onclick="showLogin()"><i class="fas fa-sign-in-alt"></i> Entrar</button>
         </div>
-        <div class="col-md-6"><div class="card investment-card p-4 text-center"><i class="fas fa-gem fa-4x mb-3"></i><h2>2.00 MT / dia</h2><p>Investimento único • 2% ao dia</p></div></div>
+        <div class="col-md-6"><div class="card investment-card p-4 text-center"><i class="fas fa-gem fa-4x mb-3"></i><h2>5.00 MT por dia</h2><p>Investimento único • 5% ao dia</p></div></div>
       </div>
     </div>
   </div>
 
-  <a href="https://wa.me/258858867098?text=Olá%20Vodamoney" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <a href="https://wa.me/258858867098?text=Olá Vodamoney preciso de ajuda" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     (function() {
-      // ---------- MESMO LÓGICA, MAS GARANTINDO QUE GANHOS VÃO PARA O SALDO PRINCIPAL ----------
+      // ---------- data layer ----------
       let users = JSON.parse(localStorage.getItem('vodamoney_users')) || [];
       let transactions = JSON.parse(localStorage.getItem('vodamoney_transactions')) || [];
       let investments = JSON.parse(localStorage.getItem('vodamoney_investments')) || [];
@@ -298,7 +296,7 @@
         'Niassa': ['Lichinga','Cuamba','Sanga','Marrupa']
       };
 
-      // Criar usuário de teste se não existir
+      // se não houver users, cria um de teste
       if (users.length === 0) {
         const data = new Date(); data.setHours(data.getHours()+6);
         users.push({
@@ -311,13 +309,13 @@
           distrito: 'Matola',
           sexo: 'Masculino',
           profissao: 'Empregado',
-          saldo: 150.00,  // Saldo principal (disponível)
+          saldo: 0.00,
           dataRegisto: new Date().toISOString(),
           saldoExpira: data.toISOString(),
           jaInvestiu: false,
           primeiroDeposito: true
         });
-        transactions.push({ id: Date.now()-1000, userId:1, tipo:'deposito', descricao:'Depósito Emola', valor:150, data:new Date().toISOString(), status:'aprovado' });
+        transactions.push({ id: Date.now()-1000, userId:1, tipo:'deposito', descricao:'Depósito Emola', valor:0, data:new Date().toISOString(), status:'aprovado' });
         localStorage.setItem('vodamoney_users', JSON.stringify(users));
         localStorage.setItem('vodamoney_transactions', JSON.stringify(transactions));
       }
@@ -353,9 +351,7 @@
       }
       function getInvestimentosUser(uid) { return investments.filter(i => i.userId === uid && i.ativo); }
       function totalInvestido(uid) { return getInvestimentosUser(uid).reduce((s,i)=> s+i.valor,0); }
-      function ganhoDiario(uid) { return getInvestimentosUser(uid).length * 2; }
-      
-      // CORAÇÃO DA LÓGICA: Ganhos vão para o saldo PRINCIPAL (user.saldo)
+      function ganhoDiario(uid) { return getInvestimentosUser(uid).length * 5; } // ALTERADO PARA 5 MT
       function aplicarGanhos(uid) {
         let u = getUser(uid); if (!u) return 0;
         let userInvest = investments.filter(i => i.userId === uid && i.ativo);
@@ -366,23 +362,14 @@
           let horas = (agora - ultimo) / (1000*60*60);
           if (horas >= 24) {
             let dias = Math.floor(horas/24);
-            let ganho = dias * 2; // 2 MT por dia
+            let ganho = dias * 5; // ALTERADO PARA 5 MT
             totalGanho += ganho;
             inv.ultimoPagamento = new Date(ultimo.getTime() + dias*24*60*60*1000).toISOString();
           }
         });
         if (totalGanho > 0) {
-          // GANHOS VÃO DIRETO PARA O SALDO PRINCIPAL (user.saldo)
           u.saldo = Number(u.saldo) + totalGanho;
-          transactions.push({ 
-            id: Date.now(), 
-            userId: uid, 
-            tipo: 'ganho', 
-            descricao: `Ganho diário (${totalGanho.toFixed(2)} MT)`, 
-            valor: totalGanho, 
-            data: new Date().toISOString(), 
-            status: 'completo' 
-          });
+          transactions.push({ id:Date.now(), userId:uid, tipo:'ganho', descricao:`Ganho diário (${totalGanho} MT)`, valor:totalGanho, data:new Date().toISOString(), status:'completo' });
           saveAll();
         }
         return totalGanho;
@@ -422,8 +409,8 @@
       function refreshDashboard() {
         if (!currentUser) return;
         let uid = currentUser.id;
-        let ganhosAgora = aplicarGanhos(uid); // aplica pendentes e adiciona ao saldo principal
-        currentUser = getUser(uid); // recarrega com saldo atualizado
+        let ganhosAgora = aplicarGanhos(uid); // aplica pendentes
+        currentUser = getUser(uid); // atualiza objeto
 
         let saldo = getSaldo(uid);
         let totalInv = totalInvestido(uid);
@@ -431,7 +418,6 @@
 
         document.getElementById('saldo').innerHTML = saldo.toFixed(2) + ' MT';
         document.getElementById('totalInvestido').innerHTML = totalInv.toFixed(2) + ' MT';
-        document.getElementById('ganhoDiario').innerHTML = diario.toFixed(2) + ' MT';
 
         let tempo = tempoRestante(uid);
         if (tempo && saldo > 0) {
@@ -444,14 +430,14 @@
           setTimeout(()=> document.getElementById('saldoDetalhes').innerHTML = '', 5000);
         } else document.getElementById('saldoDetalhes').innerHTML = '';
 
-        // Controles de investimento
+        // botão / alerta investimento
         let investBtn = document.getElementById('investButton');
         let miningCard = document.getElementById('miningCard');
         let alertsDiv = document.getElementById('investmentAlerts');
         let amountInput = document.getElementById('investAmount');
 
         if (currentUser.jaInvestiu) {
-          alertsDiv.innerHTML = `<div class="alert alert-success"><i class="fas fa-check-circle"></i> Investimento único já realizado. Receba 2 MT/dia.</div>`;
+          alertsDiv.innerHTML = `<div class="alert alert-success"><i class="fas fa-check-circle"></i> Investimento único já realizado. Receba <strong>5 MT/dia</strong>.</div>`;
           investBtn.disabled = true;
           miningCard.classList.add('investment-disabled');
           investBtn.innerHTML = '<i class="fas fa-lock"></i> Único realizado';
@@ -471,7 +457,7 @@
           investBtn.innerHTML = 'Investir Agora (Único)';
         }
 
-        // Histórico
+        // histórico
         let userTrans = transactions.filter(t => t.userId === uid).sort((a,b)=>new Date(b.data)-new Date(a.data));
         let tbody = document.getElementById('transactionHistory');
         if (userTrans.length === 0) tbody.innerHTML = '<tr><td colspan="5" class="text-center">Nada ainda</td></tr>';
@@ -503,7 +489,7 @@
           if (diff <= 0) { refreshDashboard(); return; }
           let h = Math.floor(diff/3600000), m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
           document.getElementById('countdown').innerText = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
-          document.getElementById('proximoGanho').innerHTML = `<span>próximo: 2 MT</span>`;
+          document.getElementById('proximoGanho').innerHTML = `<span>próximo: 5 MT</span>`;
         }, 1000);
       }
 
@@ -523,16 +509,16 @@
         if (saldoAtual < valor) return alert(`Saldo insuficiente: ${saldoAtual.toFixed(2)} MT`);
 
         // criar investimento
-        let inv = { id:Date.now(), userId:uid, tipo:'mining', valor, dataInicio:new Date().toISOString(), ganhoDiario:2, ultimoPagamento:new Date().toISOString(), ativo:true };
+        let inv = { id:Date.now(), userId:uid, tipo:'mining', valor, dataInicio:new Date().toISOString(), ganhoDiario:5, ultimoPagamento:new Date().toISOString(), ativo:true };
         investments.push(inv);
         let u = getUser(uid);
         u.jaInvestiu = true;
-        u.saldo = Number(u.saldo) - valor; // debita do saldo principal
+        u.saldo = Number(u.saldo) - valor;
         transactions.push({ id:Date.now(), userId:uid, tipo:'investimento', descricao:'Investimento mineração', valor:-valor, data:new Date().toISOString(), status:'completo' });
         saveAll();
         currentUser = u;
         refreshDashboard();
-        alert('Investimento realizado! Ganhos diários de 2 MT cairão no seu saldo principal.');
+        alert('Investimento realizado! Ganhos diários de 5 MT.');
       };
 
       window.logout = function() {
@@ -590,7 +576,7 @@
         if (valor < 100) return alert('Mínimo 100 MT');
         let expira = new Date(); expira.setHours(expira.getHours()+6);
         let u = getUser(currentUser.id);
-        u.saldo = Number(u.saldo) + valor; // depósito no saldo principal
+        u.saldo = Number(u.saldo) + valor;
         u.saldoExpira = expira.toISOString();
         u.primeiroDeposito = true;
         transactions.push({ id:Date.now(), userId:u.id, tipo:'deposito', descricao:'Depósito Paga Fácil', valor, data:new Date().toISOString(), status:'aprovado', details:{} });
@@ -606,10 +592,10 @@
         if (!currentUser) return alert('Login');
         let valor = parseFloat(document.getElementById('withdrawValue').value);
         let saldo = getSaldo(currentUser.id);
-        if (valor < 2) return alert('Mínimo 2 MT');
+        if (valor < 5) return alert('Mínimo 5 MT');
         if (valor > saldo) return alert('Saldo insuficiente');
         let u = getUser(currentUser.id);
-        u.saldo = Number(u.saldo) - valor; // levanta do saldo principal
+        u.saldo = Number(u.saldo) - valor;
         transactions.push({ id:Date.now(), userId:u.id, tipo:'levantamento', descricao:'Levantamento M-Pesa', valor:-valor, data:new Date().toISOString(), status:'completo' });
         saveAll();
         currentUser = u;
